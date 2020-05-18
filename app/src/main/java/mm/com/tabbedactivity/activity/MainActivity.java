@@ -1,9 +1,11 @@
-package mm.com.tabbedactivity;
+package mm.com.tabbedactivity.activity;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.tabs.TabLayout;
+
+import mm.com.tabbedactivity.R;
 import mm.com.tabbedactivity.ui.main.SectionsPagerAdapter;
 public class MainActivity extends AppCompatActivity {
 

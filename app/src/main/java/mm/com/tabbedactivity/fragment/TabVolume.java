@@ -1,4 +1,4 @@
-package mm.com.tabbedactivity;
+package mm.com.tabbedactivity.fragment;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -16,12 +16,15 @@ import androidx.fragment.app.Fragment;
 
 import java.util.Arrays;
 
-public class TabMass extends Fragment {
+import mm.com.tabbedactivity.R;
+import mm.com.tabbedactivity.adapter.SpinnerAdapter;
+import mm.com.tabbedactivity.calculate.CalcVolume;
 
+public class TabVolume extends Fragment {
 
-    Spinner spinnerMassInput,spinnerMassOutput;
-    EditText etMassInput, etMassOutput;
-    TextView tvMassInput, tvMassOutput, tvspinnerInput2, tvspinnerOutput2;
+    Spinner spinnerVolumeInput,spinnerVolumeOutput;
+    EditText etVolumeInput, etVolumeOutput;
+    TextView tvVolumeInput, tvVolumeOutput, tvspinnerInput2, tvspinnerOutput2;
     View root;
 
     @Override
@@ -33,33 +36,32 @@ public class TabMass extends Fragment {
 
         init();
         return root;
-}
-
+    }
 //--------------------------------------------------------------------------------------------------
 //-------------------------Selected form Spinner ---------------------------------------------------
 
-    private void init() {
-
-        spinnerMassInput =(Spinner)root.findViewById(R.id.spinnerInput);
-        spinnerMassOutput = (Spinner)root.findViewById(R.id.spinnerOutput);
+    private void init(){
+        spinnerVolumeInput = (Spinner)root.findViewById(R.id.spinnerInput);
+        spinnerVolumeOutput = (Spinner)root.findViewById(R.id.spinnerOutput);
 
         SpinnerAdapter spinnerAdapter = new SpinnerAdapter(getContext(),0,
-                Arrays.asList(getResources().getStringArray(R.array.mass_array_MM)));
+                Arrays.asList(getResources().getStringArray(R.array.volume_array_MM)));
 
 
-        spinnerMassInput.setAdapter(spinnerAdapter);
-        spinnerMassOutput.setAdapter(spinnerAdapter);
+        spinnerVolumeInput.setAdapter(spinnerAdapter);
+        spinnerVolumeOutput.setAdapter(spinnerAdapter);
 
 
-        spinnerMassInput.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+        spinnerVolumeInput.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if (etMassInput.getText().length() > 0){
-
-                    tvspinnerInput2=(TextView) root.findViewById(R.id.textViewspinnerInput2);
+                if (etVolumeInput.getText().length() > 0){
+                    tvspinnerInput2 = (TextView) root.findViewById(R.id.textViewspinnerInput2);
 
                     String item = adapterView.getItemAtPosition(i).toString();
                     tvspinnerInput2.setText(item);
+
                     calculate();
                 }
             }
@@ -70,12 +72,11 @@ public class TabMass extends Fragment {
             }
         });
 
-        spinnerMassOutput.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinnerVolumeOutput.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if (etMassInput.getText().length() > 0){
-
-                    tvspinnerOutput2=(TextView)root.findViewById(R.id.textViewspinnerOutput2);
+                if (etVolumeInput.getText().length() > 0){
+                    tvspinnerOutput2 = (TextView) root.findViewById(R.id.textViewspinnerOutput2);
                     String item = adapterView.getItemAtPosition(i).toString();
                     tvspinnerOutput2.setText(item);
 
@@ -92,9 +93,8 @@ public class TabMass extends Fragment {
 //--------------------------------------------------------------------------------------------------
 //-----------------------------------User Input Data(Number)----------------------------------------
 
-        etMassInput = (EditText)root.findViewById(R.id.editTextInput);
-
-        etMassInput.addTextChangedListener(new TextWatcher() {
+        etVolumeInput = (EditText) root.findViewById(R.id.editTextInput);
+        etVolumeInput.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -113,20 +113,20 @@ public class TabMass extends Fragment {
             }
         });
     }
-
 //--------------------------------------------------------------------------------------------------
+//-----------------------------------Calculate from CalcVolume----------------------------------------
 
     private void calculate(){
-        CalcLength calcLength = new CalcLength();
+        CalcVolume calcVolume = new CalcVolume();
 
-        etMassOutput = (EditText)root.findViewById(R.id.editTextOutput);
-        tvMassInput = (TextView)root.findViewById(R.id.textViewInput);
-        tvMassOutput=(TextView)root.findViewById(R.id.textViewOutput);
+        etVolumeOutput = (EditText) root.findViewById(R.id.editTextOutput);
 
+        tvVolumeInput = (TextView) root.findViewById(R.id.textViewInput);
+        tvVolumeOutput = (TextView) root.findViewById(R.id.textViewOutput);
 
-        etMassOutput.setText(calcLength.convert(Double.parseDouble(etMassInput.getText().toString()),spinnerMassInput.getSelectedItemPosition(),spinnerMassOutput.getSelectedItemPosition()));
+        etVolumeOutput.setText(calcVolume.convert(Double.parseDouble(etVolumeInput.getText().toString()), spinnerVolumeInput.getSelectedItemPosition(), spinnerVolumeOutput.getSelectedItemPosition()));
 
-        tvMassInput.setText(etMassInput.getText().toString());
-        tvMassOutput.setText(etMassOutput.getText().toString());
+        tvVolumeInput.setText(etVolumeInput.getText().toString());
+        tvVolumeOutput.setText(etVolumeOutput.getText().toString());
     }
 }

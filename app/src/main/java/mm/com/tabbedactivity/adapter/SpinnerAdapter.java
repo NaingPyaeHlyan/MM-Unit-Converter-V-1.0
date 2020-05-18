@@ -1,4 +1,4 @@
-package mm.com.tabbedactivity;
+package mm.com.tabbedactivity.adapter;
 
 import android.content.Context;
 import android.graphics.Typeface;

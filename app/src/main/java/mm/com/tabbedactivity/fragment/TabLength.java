@@ -1,4 +1,4 @@
-package mm.com.tabbedactivity;
+package mm.com.tabbedactivity.fragment;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -15,6 +15,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import java.util.Arrays;
+
+import mm.com.tabbedactivity.R;
+import mm.com.tabbedactivity.adapter.SpinnerAdapter;
+import mm.com.tabbedactivity.calculate.CalcLength;
 
 
 public class TabLength extends Fragment {

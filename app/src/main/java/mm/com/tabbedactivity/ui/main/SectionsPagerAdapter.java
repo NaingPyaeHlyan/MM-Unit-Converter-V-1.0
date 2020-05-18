@@ -9,9 +9,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import mm.com.tabbedactivity.R;
-import mm.com.tabbedactivity.TabLength;
-import mm.com.tabbedactivity.TabMass;
-import mm.com.tabbedactivity.TabVolume;
+import mm.com.tabbedactivity.fragment.TabLength;
+import mm.com.tabbedactivity.fragment.TabMass;
+import mm.com.tabbedactivity.fragment.TabVolume;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to

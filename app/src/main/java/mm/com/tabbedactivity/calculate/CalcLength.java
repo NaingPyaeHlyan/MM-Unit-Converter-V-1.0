@@ -1,4 +1,4 @@
-package mm.com.tabbedactivity;
+package mm.com.tabbedactivity.calculate;
 
 import android.widget.EditText;
 
