@@ -21,7 +21,7 @@ public class SpinnerAdapter extends ArrayAdapter<String> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
         View view = super.getView(position, convertView, parent);
-        Typeface typeface = Typeface.createFromAsset(context.getAssets(), "zawgyione.ttf");
+        Typeface typeface = Typeface.createFromAsset(context.getAssets(), "pyidaungsu.ttf");
         ((TextView) view).setTypeface(typeface);
 
         return view;
@@ -30,7 +30,7 @@ public class SpinnerAdapter extends ArrayAdapter<String> {
     @Override
     public View getDropDownView(int position, View convertView, ViewGroup parent){
         View view = super.getView(position, convertView, parent);
-        Typeface typeface = Typeface.createFromAsset(context.getAssets(), "zawgyione.ttf");
+        Typeface typeface = Typeface.createFromAsset(context.getAssets(), "pyidaungsu.ttf");
         ((TextView) view).setTypeface(typeface);
 
         return view;
